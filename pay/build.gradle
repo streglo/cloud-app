@@ -1,0 +1,134 @@
+buildscript {
+    ext {
+        springBootVersion = '2.0.4.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'home.example'
+
+bootJar {
+    baseName = 'pay'
+    version = '0.0.1-SNAPSHOT'
+}
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+
+ext {
+    springCloudVersion = 'Finchley.SR1'
+}
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.springframework.boot:spring-boot-starter-data-mongodb')
+    compile('org.springframework.cloud:spring-cloud-openfeign-core')
+    compile('org.springframework.cloud:spring-cloud-starter-openfeign')
+//    compile('org.springframework.cloud:spring-cloud-starter-feign:1.4.5.RELEASE')
+    compile('org.springframework.cloud:spring-cloud-starter-netflix-ribbon')
+    compile project(':domain')
+
+//    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+    }
+}
+
+
+
+
+
+//plugins {
+//    id "org.springframework.boot" version "2.0.4.RELEASE"
+////    id "org.springframework.boot" version "1.4.0.RELEASE"
+//}
+//
+////buildscript {
+////    ext {
+////        springBootVersion = '1.4.0.RELEASE'
+////    }
+////    repositories {
+////        mavenCentral()
+////    }
+////    dependencies {
+////        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+////    }
+////}
+//
+//
+//apply plugin: 'java'
+//apply plugin: 'idea'
+////apply plugin: 'spring-boot'
+//apply plugin: 'io.spring.dependency-management'
+//
+////dependencyManagement {
+////    imports {
+////        mavenBom 'org.springframework.cloud:spring-cloud-config:2.0.2.BUILD-SNAPSHOT'
+////    }
+////}
+//
+////jar {
+////    baseName = 'user-service'
+////    version = '0.0.1-SNAPSHOT'
+////}
+//bootJar {
+//    baseName = 'pay'
+//    version =  '0.0.1-SNAPSHOT'
+//}
+//
+//repositories {
+//    mavenCentral()
+////    maven { url "https://repo.spring.io/snapshot" }
+////    maven { url "https://repo.spring.io/milestone" }
+////    maven {
+////        url 'https://repo.spring.io/libs-snapshot'
+////    }
+//}
+//
+//sourceCompatibility = 1.8
+//targetCompatibility = 1.8
+//
+//dependencies {
+//    compile('org.springframework.boot:spring-boot-starter-web')
+////    compile('org.springframework.cloud:spring-cloud-starter-feign:1.4.5.RELEASE')
+//    compile('org.springframework.cloud:spring-cloud-starter-openfeign:2.0.0.RELEASE')
+////    compile('org.springframework.cloud:spring-cloud-starter-eureka:1.4.5.RELEASE')
+////    compile('org.springframework.cloud:spring-cloud-netflix-eureka-server:2.0.0.RELEASE')
+////    compile('org.springframework.cloud:spring-cloud-netflix-eureka-server:2.0.0.RELEASE')
+////    compile('org.springframework.cloud:spring-cloud-netflix-eureka-client:2.0.0.RELEASE')
+//
+////    compile('org.springframework.cloud:spring-cloud-netflix-core:2.0.0.RELEASE')
+//
+//
+////    compile('org.springframework.boot:spring-boot-starter-web')
+////    compile('org.springframework.boot:spring-boot-starter-data-mongodb')
+////    compile('org.springframework.cloud:spring-cloud-config-client:2.0.0.RELEASE')
+////    compile('org.springframework.cloud:spring-cloud-context:2.0.0.RELEASE')
+////    compile('org.springframework.cloud:spring-cloud-netflix-eureka-server:2.0.0.RELEASE')
+////    compile('org.springframework.cloud:spring-cloud-starter-openfeign:2.0.0.RELEASE')
+//    compile project(':domain')
+//
+////    compile("org.springframework.boot:spring-boot-starter-security")
+////    compile('org.springframework.cloud:spring-cloud-starter-oauth2:2.0.0.RELEASE')
+////    compile('org.springframework.cloud:spring-cloud-starter-openfeign:2.0.0.RELEASE')
+//
+////    testCompile("junit:junit")
+//}
+

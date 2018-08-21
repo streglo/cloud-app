@@ -1,0 +1,9 @@
+rootProject.name = 'myapp'
+
+include 'domain'
+include 'config'
+include 'user'
+include 'account'
+include 'pay'
+include 'balancer'
+

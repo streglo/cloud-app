@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: config
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/shared
+  profiles:
+     active: native
+  security:
+    user:
+      password: user
+
+server:
+  port: 8888
+
+logging:
+  file: logs/${spring.application.name}.log
+  max-size: 10m
+  level:
+    root: INFO
+    org.springframework.web: INFO
+    home.example: DEBUG

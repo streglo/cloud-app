@@ -1,0 +1,34 @@
+#Server Specifics
+spring:
+  application:
+    name: account
+  datasource:
+    url: jdbc:mongodb://localhost:27017
+    username: admin
+    password: admin
+    database: test
+    hikari:
+      connection-timeout: 20000
+      minimum-idle: 5
+      maximum-pool-size: 12
+      idle-timeout: 300000
+      max-lifetime: 1200000
+
+server:
+  port: 8082
+
+logging:
+  file: logs/${spring.application.name}.log
+  max-size: 10m
+  level:
+    root: INFO
+    org.springframework.web: INFO
+    home.example: DEBUG
+
+#Eureka Specifics
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+    serviceUrl:
+      defaultZone: http://localhost:8080/eureka/

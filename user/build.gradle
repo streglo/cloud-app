@@ -1,0 +1,86 @@
+plugins {
+    id "org.springframework.boot" version "2.0.4.RELEASE"
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'io.spring.dependency-management'
+
+//dependencyManagement {
+//    imports {
+//        mavenBom 'org.springframework.cloud:spring-cloud-config:2.0.2.BUILD-SNAPSHOT'
+//    }
+//}
+
+bootJar {
+    baseName = 'user'
+    version =  '0.0.1-SNAPSHOT'
+}
+
+repositories {
+    mavenCentral()
+//    maven {
+//        url 'https://repo.spring.io/libs-snapshot'
+//    }
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.springframework.boot:spring-boot-starter-data-mongodb')
+    compile('org.springframework.cloud:spring-cloud-config-client:2.0.0.RELEASE')
+    compile('org.springframework.cloud:spring-cloud-context:2.0.0.RELEASE')
+    compile('org.springframework.cloud:spring-cloud-netflix-eureka-server:2.0.0.RELEASE')
+    compile project(':domain')
+}
+
+
+
+//plugins {
+//    id "org.springframework.boot" version "2.0.4.RELEASE"
+//}
+//
+//apply plugin: 'java'
+//apply plugin: 'idea'
+//apply plugin: 'io.spring.dependency-management'
+//
+//dependencyManagement {
+//    imports {
+//        mavenBom 'org.springframework.cloud:spring-cloud-config:2.0.2.BUILD-SNAPSHOT'
+//    }
+//}
+//
+//bootJar {
+//    baseName = 'user'
+//    version =  '0.0.1-SNAPSHOT'
+//}
+//
+//repositories {
+//    mavenCentral()
+//    maven {
+//        url 'https://repo.spring.io/libs-snapshot'
+//    }
+//}
+//
+//sourceCompatibility = 1.8
+//targetCompatibility = 1.8
+//
+//dependencies {
+//    compile('org.springframework.boot:spring-boot-starter-web')
+//    compile('org.springframework.boot:spring-boot-starter-data-mongodb')
+//    compile('org.springframework.cloud:spring-cloud-config-client:2.0.0.RELEASE')
+//    compile('org.springframework.cloud:spring-cloud-context:2.0.0.RELEASE')
+//    compile('org.springframework.cloud:spring-cloud-netflix-eureka-client:2.0.0.RELEASE')
+
+//    compile('org.springframework.cloud:spring-cloud-starter-openfeign:2.0.0.RELEASE')
+//    compile project(':domain')
+
+//    compile("org.springframework.boot:spring-boot-starter-security")
+//    compile('org.springframework.cloud:spring-cloud-starter-oauth2:2.0.0.RELEASE')
+//    compile('org.springframework.cloud:spring-cloud-starter-openfeign:2.0.0.RELEASE')
+
+//    testCompile("junit:junit")
+//}
+

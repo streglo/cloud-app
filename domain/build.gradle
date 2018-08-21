@@ -1,0 +1,21 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+
+group 'home.example'
+version '1.0-SNAPSHOT'
+
+version =  '0.0.1-SNAPSHOT'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile('org.springframework.data:spring-data-mongodb:2.0.8.RELEASE')
+//    compile('org.springframework.boot:spring-boot-starter-data-mongodb')
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
