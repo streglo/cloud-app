@@ -2,11 +2,14 @@
 spring:
   application:
     name: pay
+  data:
+    mongodb:
+      host: mongodb_host
+      port: 27017
+      database: test
+      username: admin
+      password: admin
   datasource:
-    url: jdbc:mongodb://localhost:27017
-    username: admin
-    password: admin
-    database: test
     hikari:
       connection-timeout: 20000
       minimum-idle: 5
@@ -31,10 +34,11 @@ eureka:
     hostname: localhost
     port: 8080
   client:
+    registerWithEureka: true
+    fetchRegistry: true
 #    healthcheck:
 #      enabled: true
     serviceUrl:
-#      defaultZone: http://localhost:8080/eureka/
       defaultZone: http://${eureka.instance.hostname}:${eureka.instance.port}/eureka/
 #  instance:
 #    leaseRenewalIntervalInSeconds: 10
